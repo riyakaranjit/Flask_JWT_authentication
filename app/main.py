@@ -81,9 +81,9 @@ def login_user():
             {'public_id': user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)},
             app.config['SECRET_KEY'])
 
-        user.jwt_token = token
+        user.jwt_token = token.decode("UTF-8")
         db.session.commit()
-        return jsonify({'token': token}), 200
+        return jsonify({'token': token.decode("UTF-8")}), 200
 
     return jsonify({"message": 'unauthorized access'}), 403
 
