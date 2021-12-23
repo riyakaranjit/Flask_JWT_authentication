@@ -1,0 +1,5 @@
+flask
+flask_sqlalchemy
+PyJWT==1.7.1
+uuid
+gunicorn
